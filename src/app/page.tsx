@@ -1,3 +1,4 @@
+"use client"
 import HeaderAndForm from "./Components/HeaderAndForm";
 import AllPosts from "./Components/AllPosts";
 
