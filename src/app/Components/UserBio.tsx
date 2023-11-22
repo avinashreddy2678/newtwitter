@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import useCurrentUser from "../hooks/useCurrentuser";
 import UseOneUser from "../hooks/useOneUser";
