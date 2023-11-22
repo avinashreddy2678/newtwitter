@@ -1,3 +1,4 @@
+"use client";
 import axios from "axios";
 import useSingleUserPosts from "./useSingleUserPosts";
 import useAllPosts from "./useAllPosts";

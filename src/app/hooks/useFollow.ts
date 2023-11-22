@@ -1,3 +1,4 @@
+"use client";
 import axios from "axios";
 import useCurrentUser from "./useCurrentuser";
 import UseOneUser from "./useOneUser";
