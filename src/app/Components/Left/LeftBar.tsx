@@ -7,7 +7,7 @@ import { BsHouseFill, BsBellFill } from "react-icons/bs";
 import { FaUser } from "react-icons/fa";
 import LeftItems from "./LeftItems";
 import { IconType } from "react-icons";
-import { Twitter } from "@material-ui/icons";
+//import { Twitter } from "@material-ui/icons";
 import useCurrentUser from "@/app/hooks/useCurrentuser";
 import axios from "axios";
 interface Item {
@@ -50,12 +50,12 @@ const LeftBar = () => {
 
   return (
     <div>
-      <Twitter
+      {/* <Twitter
         className={`h-30 mb-5${
           theme === "dark" ? " dark-theme" : " light-theme"
         }`}
         onClick={() => settheme(theme === "dark" ? "light" : "dark")}
-      />
+      /> */}
 
       {items.map((item: Item) => (
         <div className="px-3" key={item.href}>
