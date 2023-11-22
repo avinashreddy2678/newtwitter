@@ -15,7 +15,7 @@ const Page = () => {
   const handlesubmit = async (e: any) => {
     e.preventDefault();
     const response = await axios.post("/api/users/Login", userdata);
-    //console.log(response);
+    console.log(response);
     toast(response.data.message);
     if (response.data.status === 200) {
       router.push("/");
