@@ -1,3 +1,4 @@
+export const dynamic ="force-dynamic";
 import { connect } from "@/app/dbConfig/dbConfig";
 import Posts from "@/app/models/PostModal";
 
