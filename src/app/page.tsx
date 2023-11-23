@@ -2,7 +2,7 @@
 import HeaderAndForm from "./Components/HeaderAndForm";
 import AllPosts from "./Components/AllPosts";
 
-export default function Home() {
+const Home = () => {
   return (
     <main className="">
       <div>
@@ -12,5 +12,7 @@ export default function Home() {
         <AllPosts />
       </div>
     </main>
-  );
+  )
 }
+
+export default Home
