@@ -1,7 +1,6 @@
 "use client";
 import React from 'react'
 import useCurrentUser from '../hooks/useCurrentuser'
-import UseOneUser from '../hooks/useOneUser';
 import Avatar from '../Components/Avatar';
 import UserBio from '../Components/UserBio';
 import PostItem from '../Components/PostItem';

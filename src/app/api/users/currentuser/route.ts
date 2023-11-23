@@ -1,4 +1,4 @@
-import { getDatafromToken } from "@/app/helpers/getDataFromToken";
+import { getDatafromToken } from "../../../helpers/getDataFromToken";
 import User from "../../../models/UserModel";
 import { NextRequest, NextResponse } from "next/server";
 export async function GET(request: NextRequest) {
