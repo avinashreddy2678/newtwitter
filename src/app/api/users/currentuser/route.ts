@@ -1,3 +1,4 @@
+export const dynamic ="force-dynamic";
 import { connect } from "@/app/dbConfig/dbConfig";
 import { getDatafromToken } from "../../../helpers/getDataFromToken";
 import User from "../../../models/UserModel";
