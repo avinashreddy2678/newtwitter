@@ -4,11 +4,8 @@ import fetcher from "../lib/fetcher";
 import axios from "axios";
 import { useEffect, useState } from "react";
 const useCurrentUser = () => {
-  const [date,setdata]=useState([])
-  const {  data,error, isLoading, mutate } = useSWR(
-    "/api/users/currentuser",
-    fetcher
-  );
+  const [date, setdata] = useState<any[]>([]);
+  const {  data,error, isLoading, mutate } = useSWR("/api/users/currentuser",fetcher);
   // const response =  axios.get('/api/users/currentuser');
   //console.log(!isLoading && data);
 
@@ -19,7 +16,7 @@ const useCurrentUser = () => {
   };
   useEffect(() => {
     getdata();
-  }, [mutate]);
+  }, [date]);
   //console.log(date);
   return {
     data,
