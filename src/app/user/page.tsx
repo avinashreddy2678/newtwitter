@@ -6,8 +6,8 @@ import UserBio from '../Components/UserBio';
 import PostItem from '../Components/PostItem';
 import useSingleUserPosts from '../hooks/useSingleUserPosts';
 const Page = () => {
-  const { data:currentuser, isLoading,date } = useCurrentUser();
-  console.log(date.user)
+  const { data:currentuser, isLoading } = useCurrentUser();
+  
   const userId = currentuser?.user?._id;
   const { data: singleuser,isLoading:userLoading,error } = useSingleUserPosts(userId);
  // console.log(!userLoading && !error && singleuser.singleuserposts)
@@ -19,7 +19,7 @@ const Page = () => {
           <div className="w-100 p-4 h-20 bg-black">
             {currentuser!==undefined && <Avatar profileImg={currentuser.user.profileImg} isLarge />}
           </div>
-          {currentuser  && <UserBio userid={date.user._id}/>}
+          {currentuser  && <UserBio userid={currentuser.user._id}/>}
          
          {
           !userLoading && !error && singleuser.singleuserposts.map((item:any)=>(
