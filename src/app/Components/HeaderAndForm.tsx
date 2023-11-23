@@ -18,7 +18,7 @@ interface HeaderProps {
 }
 const Header: React.FC<HeaderProps> = ({ label, button,message,postId }) => {
   const router = useRouter();
-  const { data, isLoading,date } = useCurrentUser();
+  const { data, isLoading } = useCurrentUser();
   const { mutate } = useAllPosts();
   const [body, setbody] = useState("");
 const {mutate:mutateComments}=useComments(postId);
@@ -31,7 +31,7 @@ const {mutate:mutateComments}=useComments(postId);
     setbody("");
     mutate();
   };
-  console.log(date)
+
 //from page of comments  to add a new comment
   const submitcomment = async (userid: string) => {
     // console.log(postId)
@@ -48,7 +48,7 @@ const {mutate:mutateComments}=useComments(postId);
 
   return (
     <div>
-      {!isLoading &&  data.message === "Crediantials" ? (
+      {!isLoading && data.message === "Crediantials" ? (
         <>
           {label}
           <div className="postingbox border border-opacity-10 border-gray-500">
