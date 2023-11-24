@@ -26,7 +26,16 @@ const {mutate:mutateComments}=useComments(postId);
   const submittweet = async (userid: string) => {
     const res = await axios.post("/api/users/createpost", { body, userid });
     if (res) {
-      toast.success("Tweeted");
+      toast.info('🦄 Tweeted!', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });
     }
     setbody("");
     mutate();
@@ -37,7 +46,16 @@ const {mutate:mutateComments}=useComments(postId);
     // console.log(postId)
     const res = await axios.post("/api/users/addcomment", { body, userid,postId});
     if (res) {
-      toast.success("Replied");
+      toast.info('Wow Great Rply', {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
     }
     setbody("");
     mutateComments();
@@ -48,17 +66,20 @@ const {mutate:mutateComments}=useComments(postId);
 
   return (
     <div>
+      
+        {isLoading && <div className="skeleton ml-6 w-[35vw] h-28"></div>}
+      
       {!isLoading && data.message === "Crediantials" ? (
         <>
-          {label}
-          <div className="postingbox border border-opacity-10 border-gray-500">
+         <span className="ml-4 font-serif">{label} Page Babu idhi</span>
+          <div className="postingbox border border-opacity-10 mx-3 border-gray-500">
             <p className="flex]">
               {!isLoading &&
                 (data.message === "Crediantials" ? (
-                  <div className="flex flex-col w-full">
-                    <div className="flex align-middle justify-center my-5 h-[10vh]">
-                      <div className="my-3">
-                        <Avatar profileImg={data.user.profileImg} />
+                  <div className="flex flex-col w-full ">
+                    <div className="flex align-middle justify-center  my-5 h-[10vh]">
+                      <div className="my-3 ">
+                        <Avatar profileImg={data?.user?.profileImg} />
                       </div>
                       <input
                         type="text"
@@ -73,9 +94,9 @@ const {mutate:mutateComments}=useComments(postId);
                         onClick={() => {
                           submitcomment(data.user._id);
                         }}
-                        className="w-20 h-10 m-auto flex justify-end btn btn-primary"
+                        className="w-23 h-10 m-auto flex justify-end btn btn-primary"
                       >
-                        <button>Comment</button>
+                        <button className="">Comment</button>
                       </div>
                     ) : (
                       <div

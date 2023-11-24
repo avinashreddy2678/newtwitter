@@ -10,6 +10,7 @@ import { IconType } from "react-icons";
 import { Twitter } from "@material-ui/icons";
 import useCurrentUser from "@/app/hooks/useCurrentuser";
 import axios from "axios";
+import { toast } from "react-toastify";
 interface Item {
   icons: IconType; // Update the type if needed
   title: string;
@@ -21,13 +22,15 @@ const LeftBar = () => {
 
   const { data, isLoading, mutate } = useCurrentUser();
   const [theme, settheme] = React.useState(
-    typeof window !== 'undefined' ? localStorage.getItem('theme') || 'light' : 'light'
+    typeof window !== "undefined"
+      ? localStorage.getItem("theme") || "light"
+      : "dark"
   );
 
   React.useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('theme', theme || '');
-      document.querySelector('html')?.setAttribute('data-theme', theme || '');
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", theme || "");
+      document.querySelector("html")?.setAttribute("data-theme", theme || "");
     }
   }, [theme]);
   const Logbtn = async (href: string) => {
@@ -38,7 +41,7 @@ const LeftBar = () => {
       if (response) {
         mutate();
       }
-      router.push("/")
+      router.push("/");
     }
   };
 
@@ -69,7 +72,12 @@ const LeftBar = () => {
               <div className="mt-6 flex align-middle justify-center lg:justify-start">
                 <button className="rounded btn btn-primary pl-6 flex md:h-[20v] align-middle">
                   <FaFeather size={24} />
-                  <span onClick={()=>{router.push("/")}} className="px-3 cursor-pointer hidden lg:block">
+                  <span
+                    onClick={() => {
+                      router.push("/");
+                    }}
+                    className="px-3 cursor-pointer hidden lg:block"
+                  >
                     Tweet
                   </span>
                 </button>

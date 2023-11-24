@@ -15,8 +15,17 @@ const Page = () => {
   const handlesubmit = async (e: any) => {
     e.preventDefault();
     const response = await axios.post("/api/users/Login", userdata);
-    console.log(response);
-    toast(response.data.message);
+    //console.log(response);
+    toast.success( `Wow Wow wow`, {
+      position: "top-center",
+      autoClose: 4000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
     if (response.data.status === 200) {
       router.push("/");
       mutate();

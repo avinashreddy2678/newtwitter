@@ -32,7 +32,7 @@ const Page = ({ params: { postid } }: any) => {
         {/*  each comment display*/}
 
         <div className="overflow-y-auto scrollbar-hide">
-          <div className="h-[55vh]">
+          <div className="h-[52vh]">
             {!commentsLoading &&
               commentsdata.eachcomment.map((item: any) => (
                 <div key={item._id}>

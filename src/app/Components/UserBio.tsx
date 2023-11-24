@@ -48,7 +48,7 @@ const UserBio = ({ userid }: any) => {
                 {button ? (
                   <>
                     <button
-                      className="bg-transparent font-semibold text-white py-2 px-4 border hover:border-transparent rounded-full"
+                      className="bg-transparent font-semibold py-2 px-4 border hover:border-transparent rounded-full"
                       onClick={()=>{handleUnFollow(fetchedUser.singleuser._id,currentUser?.user?._id)}}
                     >
                       Following

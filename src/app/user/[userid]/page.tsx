@@ -12,6 +12,7 @@ const UserView = ({ params: { userid } }: any) => {
   // in posts the data is getting like singleuserposts
   return (
     <div>
+      {isLoading && <div className="skeleton w-[40vw] h-[100vh]"></div>}
       {!isLoading && (
         <div className="h-[100vh]">
           <div className="w-100 p-4 h-20 bg-black ">
