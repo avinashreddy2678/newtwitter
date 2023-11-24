@@ -6,7 +6,8 @@ import PostItem from "./PostItem";
 const AllPosts = () => {
   const { data, isLoading } = useAllPosts();
   return (
-    <div className="h-[75vh]">
+    <div className="h-[74vh]">
+
       {!isLoading &&
         data.allposts.map((item: any) => (
           <div key={item._id}>

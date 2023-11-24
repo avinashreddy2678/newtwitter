@@ -20,7 +20,10 @@ const Page = () => {
             {currentuser!==undefined && <Avatar profileImg={currentuser.user.profileImg} isLarge />}
           </div>
           {currentuser  && <UserBio userid={currentuser.user._id}/>}
-         
+          
+        
+         <div className='overflow-y-auto scrollbar-hide'>
+         <div className='h-[55vh]'>
          {
           !userLoading && !error && singleuser.singleuserposts.map((item:any)=>(
             <div key={item._id}>
@@ -28,6 +31,8 @@ const Page = () => {
                 </div>
           ))
          }
+         </div>
+         </div>
         </div>
       )}
     </div>

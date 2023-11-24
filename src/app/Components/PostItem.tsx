@@ -10,10 +10,12 @@ import { toast } from "react-toastify";
 import useComments from "../hooks/useComments";
 const PostItem = ({ postdetails }: any) => {
   const router = useRouter();
- //console.log(postdetails);
+  //console.log(postdetails);
   const { data: postuser, isLoading } = UseOneUser(postdetails.userid);
   const { data, isLoading: currentuserLoading } = useCurrentUser();
-  const { data: commentsdata, isLoading: commentsLoading } =useComments(postdetails._id);
+  const { data: commentsdata, isLoading: commentsLoading } = useComments(
+    postdetails._id
+  );
   //console.log(commentsdata.eachcomment.length);
   //wait until user loads and in postdetials of every post which has isLiked array and checking the curernt user inlcudes
   const CheckLike =
@@ -21,7 +23,8 @@ const PostItem = ({ postdetails }: any) => {
     data.message === "Crediantials" &&
     postdetails.isLiked.includes(data.user._id);
 
-  const u_id = !isLoading && data && data.message === "Crediantials" && data.user._id;
+  const u_id =
+    !isLoading && data && data.message === "Crediantials" && data.user._id;
   //useLike hook has two delte like and add like which exceipts two paramwters userid and postid
   const { toLike, deleteLike } = useLike(u_id);
 
@@ -30,7 +33,14 @@ const PostItem = ({ postdetails }: any) => {
       router.push("/Login");
     } else {
       toLike({ userId, postId });
-      toast("Liked");
+      toast.success("Wow You Liked It!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
   };
 
@@ -39,7 +49,16 @@ const PostItem = ({ postdetails }: any) => {
       router.push("/Login");
     } else {
       deleteLike({ userId, postId });
-      toast("Removed Like");
+      toast.error("It's Okay broh!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
     }
   };
 
@@ -51,11 +70,13 @@ const PostItem = ({ postdetails }: any) => {
     }
   };
   return (
-    <div className="mt-2 ml-3 flex border border-opacity-20 border-gray-500 p-5">
+    <div className="mt-2 m-3 flex border border-opacity-20 border-gray-500 p-5">
       <div
         className="min-h-[10vh]  cursor-pointer"
         onClick={() => goToProfile(postdetails.userid)}
       >
+        {isLoading && <div className="skeleton w-[35vw] h-32"></div>}
+
         {!isLoading && <Avatar profileImg={postuser.singleuser.profileImg} />}
       </div>
       <div>
@@ -68,11 +89,11 @@ const PostItem = ({ postdetails }: any) => {
               >
                 {postuser.singleuser.name}
               </span>{" "}
-              <span className="ml-3 text-xs">
+              <span className="ml-2 text-xs">
                 {formatDistanceToNowStrict(new Date(postdetails.createdAt))} ago
               </span>
             </div>
-            <div className="mt-1 ml-2 cursor-pointer" onClick={()=>{router.push(`/CommentPage/${postdetails._id}`)}}>{postdetails.post}</div>
+            <div className="mt-1 ml-2 cursor-pointer">{postdetails.post}</div>
             <div className="flex gap-8 mt-4">
               {CheckLike ? (
                 <>
@@ -94,8 +115,14 @@ const PostItem = ({ postdetails }: any) => {
                 </span>
               )}
 
-              <span className="flex gap-2 align-middle justify-center items-center cursor-pointer ">
-                <AiOutlineMessage size={20} /> {!commentsLoading&& commentsdata.eachcomment.length}
+              <span
+                className="flex gap-2 align-middle justify-center items-center cursor-pointer"
+                onClick={() => {
+                  router.push(`/CommentPage/${postdetails._id}`);
+                }}
+              >
+                <AiOutlineMessage size={20} />{" "}
+                {!commentsLoading && commentsdata.eachcomment.length}
               </span>
             </div>
           </>
