@@ -19,7 +19,8 @@ const UserView = ({ params: { userid } }: any) => {
             <Avatar profileImg={singleuser.singleuser.profileImg} isLarge />
           </div>
           <UserBio userid={userid} />
-          <div className="h-[60] overflow-y-auto scrollbar-hide">
+          <div className="overflow-y-auto scrollbar-hide">
+            <div className="h-[60]">
             {!postsLoading &&
               posts !== undefined &&
               posts.singleuserposts.map((item: any) => (
@@ -27,6 +28,7 @@ const UserView = ({ params: { userid } }: any) => {
                   <PostItem postdetails={item} />
                 </div>
               ))}
+          </div>
           </div>
         </div>
       )}
