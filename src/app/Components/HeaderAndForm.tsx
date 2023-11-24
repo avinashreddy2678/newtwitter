@@ -71,7 +71,7 @@ const {mutate:mutateComments}=useComments(postId);
       
       {!isLoading && data.message === "Crediantials" ? (
         <>
-         <span className="ml-4 font-serif">{label} Page Babu idhi</span>
+         <span className="ml-4 font-serif">{label} Page idhi</span>
           <div className="postingbox border border-opacity-10 mx-3 border-gray-500">
             <p className="flex]">
               {!isLoading &&

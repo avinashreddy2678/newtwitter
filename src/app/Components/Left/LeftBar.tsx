@@ -11,6 +11,7 @@ import { Twitter } from "@material-ui/icons";
 import useCurrentUser from "@/app/hooks/useCurrentuser";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Button, Tooltip } from "@nextui-org/react";
 interface Item {
   icons: IconType; // Update the type if needed
   title: string;
@@ -53,12 +54,27 @@ const LeftBar = () => {
 
   return (
     <div>
-      <Twitter
-        className={`h-30 mb-5${
-          theme === "dark" ? " dark-theme" : " light-theme"
-        }`}
-        onClick={() => settheme(theme === "dark" ? "light" : "dark")}
-      />
+      <Tooltip showArrow
+      placement="left"
+      content="Change Theme"
+      classNames={{
+        base: [
+          // arrow color
+          "before:bg-neutral-400 dark:before:bg-white",
+        ],
+        content: [
+          "shadow-xl",
+        ],
+      }}>
+        <Button>
+          <Twitter
+            className={`h-4 mb-1${
+              theme === "dark" ? " dark-theme" : " light-theme"
+            }`}
+            onClick={() => settheme(theme === "dark" ? "light" : "dark")}
+          />
+        </Button>
+      </Tooltip>
 
       {items.map((item: Item) => (
         <div className="px-3" key={item.href}>
