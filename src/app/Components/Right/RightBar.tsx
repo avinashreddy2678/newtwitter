@@ -8,14 +8,14 @@ const RightBar = () => {
   //console.log(data)
   return (
     <div>
-      <span className="mx-3 my-4 text-lg font-sans">Whom to Follow </span>
+      <span className="mx-3 my-4 text-lg h-[100vh] font-sans">Whom to Follow </span>
 
       {!isLoading &&
         !error &&
         data.allusers.map((item: any) => (
           <div
             key={item._id}
-            className="border m-2 border-opacity-10 border-gray-500 p-2"
+            className="border m-2 border-opacity-10  border-gray-500 p-2"
           >
             {isLoading && <div className="skeleton w-[35vw] h-32"></div>}
             <RightBarItem

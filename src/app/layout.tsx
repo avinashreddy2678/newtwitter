@@ -19,15 +19,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <main className=" w-[80vw]  m-auto flex h-[100vh]">
+        <main className=" w-[80vw]  m-auto flex h-[100vh] overflow-y-auto scrollbar-hide">
           <div className="w-3/12 md:2/6 shadow-md h-[100vh]">
-            <LeftBar/>
+            <LeftBar />
           </div>
-          <div className="lg:w-6/12 w-5/6 shadow h-[100vh]">
-             {children}
-          </div>
-          <div className="w-3/12 hidden  shadow-lg  lg:block h-[100vh]">
-            <RightBar />
+          <div className="lg:w-6/12 w-5/6 shadow h-[100vh]">{children}</div>
+          <div className="w-3/12 hidden shadow-lg lg:block h-[100vh]">
+            <div className="overflow-y-auto scrollbar-hide">
+              <div className="h-[100vh]">
+                <RightBar />
+              </div>
+            </div>
           </div>
         </main>
       </body>

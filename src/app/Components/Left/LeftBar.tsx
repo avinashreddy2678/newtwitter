@@ -38,7 +38,7 @@ const LeftBar = () => {
     if (href === "/Login") {
       router.push(href);
     } else {
-      const response = await axios.get("api/users/logout");
+      const response = await axios.get("/api/users/logout");
       if (response) {
         mutate();
       }
