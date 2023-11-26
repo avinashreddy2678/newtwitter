@@ -116,8 +116,8 @@ const Header: React.FC<HeaderProps> = ({ label, button, message, postId }) => {
                       {emojivisible ? (
                         <div className="mt-14 absolute z-20">
                           <EmojiPicker
-                            emojiStyle='facebook'
-                            size="16"
+                            // emojiStyle='facebook'
+                            // size={16}
                             autoFocusSearch={false}
                             height={400}
                             width={300}
